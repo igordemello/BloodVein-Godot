@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://1i7arngflp1s"]
+
+[ext_resource type="Script" uid="uid://bvpmrp7806vm2" path="res://resources/weapons/WeaponData.gd" id="1_fecc0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fecc0"]
+
+[resource]
+script = ExtResource("1_fecc0")
+nome = "chigatana"
+animacao = "chigatana"
+dano = 20
+cooldown = 0.4
+knockback = 150.0
+collision_shape = SubResource("RectangleShape2D_fecc0")
+metadata/_custom_type_script = "uid://bvpmrp7806vm2"
