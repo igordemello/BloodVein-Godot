@@ -14,4 +14,3 @@ centered = false
 [node name="Player" parent="." instance=ExtResource("2_eilbw")]
 position = Vector2(913, 571)
 scale = Vector2(3, 3)
-animation = &"idle_front"

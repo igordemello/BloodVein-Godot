@@ -1,9 +1,10 @@
-[gd_scene load_steps=77 format=3 uid="uid://debmchg4u78yi"]
+[gd_scene load_steps=79 format=3 uid="uid://debmchg4u78yi"]
 
 [ext_resource type="Texture2D" uid="uid://2mwccf1yuosn" path="res://assets/Player/IDLE.png" id="1_7j80i"]
 [ext_resource type="Texture2D" uid="uid://dghpsy0xbln77" path="res://assets/Player/IDLE_COSTAS.png" id="1_7omxl"]
 [ext_resource type="Texture2D" uid="uid://k1ncmsntpwpx" path="res://assets/Player/dash_costas.png" id="1_kai0q"]
 [ext_resource type="Texture2D" uid="uid://cq3drk6jtgtmf" path="res://assets/Player/dash_frente.png" id="1_ne3il"]
+[ext_resource type="Script" uid="uid://duudourvav7hd" path="res://scripts/player/player.gd" id="1_wxvsy"]
 [ext_resource type="Texture2D" uid="uid://b4mfcv13wr3p3" path="res://assets/Player/dash _lado.png" id="2_kai0q"]
 [ext_resource type="Texture2D" uid="uid://ctned03wdhlcf" path="res://assets/Player/IDLE_LADO.png" id="3_u4c7w"]
 [ext_resource type="Texture2D" uid="uid://bhu86lw0lr0b0" path="res://assets/Player/vampira_andando_tras.png" id="4_6sl1v"]
@@ -274,7 +275,7 @@ region = Rect2(352, 0, 32, 48)
 atlas = ExtResource("6_hsluc")
 region = Rect2(384, 0, 32, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hsluc"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_kai0q"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -294,7 +295,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"dash_back",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -314,7 +315,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"dash_front",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -334,7 +335,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"dash_side",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -429,7 +430,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_back",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -473,7 +474,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_front",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -517,10 +518,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_side",
-"speed": 5.0
+"speed": 9.0
 }]
 
-[node name="Player" type="AnimatedSprite2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kai0q"]
+radius = 9.253012
+height = 46.26506
+
+[node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.296875, 1.296875)
-sprite_frames = SubResource("SpriteFrames_hsluc")
-animation = &"dash_back"
+script = ExtResource("1_wxvsy")
+max_speed = 400.0
+acceleration = 1400.0
+friction = 1200.0
+dash_speed = 1000.0
+dash_duration = 0.1
+dash_cooldown = 0.6
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.296875, 1.296875)
+sprite_frames = SubResource("SpriteFrames_kai0q")
+animation = &"run_side"
+frame_progress = 0.42729065
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5421691)
+shape = SubResource("CapsuleShape2D_kai0q")
