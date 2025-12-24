@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://fdnmo6ku06la"]
+
+[ext_resource type="Texture2D" uid="uid://ci0voohqsjemw" path="res://assets/UI/tela_fundo1.png" id="1_n0j4w"]
+
+[node name="main-temp" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(-31.999998, -106.99999)
+scale = Vector2(1.296875, 1.296875)
+texture = ExtResource("1_n0j4w")
+centered = false
