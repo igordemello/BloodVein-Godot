@@ -8,7 +8,6 @@ extends CharacterBody2D
 @export var dash_duration: float
 @export var dash_cooldown: float
 
-@export var weapon: Node2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -45,7 +44,6 @@ func _physics_process(delta: float) -> void:
 		_start_dash()
 	
 	move_and_slide()
-	_update_weapon()
 	_update_animation(input_vector)
 
 func _start_dash() -> void:
@@ -103,14 +101,3 @@ func _update_animation(input_vector: Vector2) -> void:
 	
 	if sprite.animation != anim_name:
 		sprite.play(anim_name)
-
-func _update_weapon() -> void:
-	var mouse_pos := get_global_mouse_position()
-	var dir := (mouse_pos - global_position).normalized()
-
-	weapon.rotation = dir.angle()
-
-	if dir.y < 0:
-		weapon.z_index = 0
-	else:
-		weapon.z_index = 2

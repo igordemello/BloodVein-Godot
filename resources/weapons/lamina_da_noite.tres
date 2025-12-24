@@ -3,14 +3,15 @@
 [ext_resource type="Script" uid="uid://bvpmrp7806vm2" path="res://resources/weapons/WeaponData.gd" id="1_enrh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enrh5"]
-size = Vector2(41, 20)
+size = Vector2(40, 40)
 
 [resource]
 script = ExtResource("1_enrh5")
 nome = "lamina_da_noite"
 animacao = "lamina_da_noite"
 dano = 20
-cooldown = 0.4
+cooldown = 0.6
 knockback = 150.0
+attack_duration = 0.15
 collision_shape = SubResource("RectangleShape2D_enrh5")
 metadata/_custom_type_script = "uid://bvpmrp7806vm2"
