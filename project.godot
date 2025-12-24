@@ -23,6 +23,14 @@ window/size/viewport_height=1080
 window/size/mode=3
 mouse_cursor/custom_image="uid://fsmvi447mu1i"
 
+[editor]
+
+import/use_multiple_threads=false
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/YATI/plugin.cfg")
+
 [input]
 
 up={
