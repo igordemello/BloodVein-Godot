@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var life: float
 @export var stamina: float
 @export var mana: float
+@export var hp_decay: float
 
 var last_direction: Vector2 = Vector2.DOWN
 
@@ -21,6 +22,8 @@ var dash_timer: float = 0.0
 var cooldown_timer: float = 0.0
 
 func _physics_process(delta: float) -> void:
+	life -= hp_decay
+	
 	if cooldown_timer > 0.0:
 		cooldown_timer -= delta
 	

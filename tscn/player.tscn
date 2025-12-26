@@ -538,6 +538,7 @@ dash_cooldown = 0.6
 life = 100.0
 stamina = 100.0
 mana = 100.0
+hp_decay = 0.1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
