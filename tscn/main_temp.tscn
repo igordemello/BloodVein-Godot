@@ -19,6 +19,8 @@ centered = false
 [node name="Player" parent="." instance=ExtResource("2_eilbw")]
 position = Vector2(1002, 602.99994)
 scale = Vector2(2.7, 2.7)
+cost_dash = 30.0
+time_recover_stamina = 5.0
 
 [node name="9" parent="." instance=ExtResource("3_puia7")]
 z_index = -3

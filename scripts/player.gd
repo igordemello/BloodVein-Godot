@@ -14,6 +14,10 @@ extends CharacterBody2D
 @export var stamina: float
 @export var mana: float
 @export var hp_decay: float
+@export var cost_dash: float
+@export var time_recover_stamina: float
+@export var stamina_recover_rate: float = 20.0
+
 
 var last_direction: Vector2 = Vector2.DOWN
 
@@ -21,8 +25,24 @@ var is_dashing: bool = false
 var dash_timer: float = 0.0
 var cooldown_timer: float = 0.0
 
+var cooldown_stamina: float = 0.0
+var less_than_100: bool = false
+
 func _physics_process(delta: float) -> void:
 	life -= hp_decay
+	
+	if stamina < 100:
+		less_than_100 = true
+	else:
+		less_than_100 = false
+		cooldown_stamina = 0.0
+	
+	if less_than_100:
+		cooldown_stamina += delta
+		
+		if cooldown_stamina >= time_recover_stamina:
+			stamina += stamina_recover_rate * delta
+			stamina = min(stamina, 100)
 	
 	if cooldown_timer > 0.0:
 		cooldown_timer -= delta
@@ -47,10 +67,17 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
 	if Input.is_action_just_pressed("dash") and cooldown_timer <= 0.0:
-		_start_dash()
+		if stamina >= cost_dash:
+			use_stamina(cost_dash)
+			_start_dash()
 	
 	move_and_slide()
 	_update_animation(input_vector)
+
+func use_stamina(valor: float) -> void:
+	stamina -= valor
+	stamina = max(stamina, 0)
+	cooldown_stamina = 0.0
 
 func _start_dash() -> void:
 	is_dashing = true
