@@ -8,8 +8,11 @@ extends CharacterBody2D
 @export var dash_duration: float
 @export var dash_cooldown: float
 
-
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+@export var life: float
+@export var stamina: float
+@export var mana: float
 
 var last_direction: Vector2 = Vector2.DOWN
 

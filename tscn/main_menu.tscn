@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpc2u6vynhaly"]
+
+[ext_resource type="VideoStream" uid="uid://1dljgtfq2ykr" path="res://assets/UI/loop.ogv" id="1_hpdlp"]
+[ext_resource type="Script" uid="uid://bu328ge5xb51p" path="res://scripts/main_menu.gd" id="1_ymtcx"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ymtcx")
+
+[node name="loop" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("1_hpdlp")
+autoplay = true
+loop = true
